@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Custom Glassmorphism Styles */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-r from-blue-600 to-blue-900 text-white min-h-screen flex flex-col justify-between">
+
+  <!-- Main Container -->
+  <div class="container mx-auto px-4 py-6">
+
+    <!-- Search Section -->
+    <div class="flex justify-center items-center mb-8">
+      <input type="text" id="city-input" placeholder="Enter city name" class="p-4 w-full md:w-2/3 lg:w-1/3 rounded-l-lg bg-white bg-opacity-20 text-white placeholder-gray-300 border-none outline-none focus:ring-2 focus:ring-blue-400">
+      <button id="search-btn" class="p-4 bg-blue-500 hover:bg-blue-600 rounded-r-lg text-white font-bold">Search</button>
+    </div>
+
+    <!-- Current Weather Section -->
+    <div class="glass-card p-8 mb-8 mx-auto max-w-lg shadow-lg">
+      <div class="flex justify-between items-center mb-4">
+        <div>
+          <h2 id="city-name" class="text-2xl font-semibold">City, Country</h2>
+          <p id="description" class="text-gray-200">Clear Sky</p>
+        </div>
+        <div class="flex items-center">
+          <img id="weather-icon" src="ICONS/cloudy.png" alt="Weather Icon" class="w-16 h-16 mr-4">
+          <span id="temperature" class="text-4xl font-bold">29°C</span>
+        </div>
+      </div>
+      <div class="flex justify-around text-center">
+        <div>
+            <img id="wind-icon" src="ICONS/wind.png" class="w-10 h-10 mx-auto mb-1" alt="Wind Icon">
+
+          <p class="text-gray-200">Wind</p>
+          <span id="wind" class="font-bold">11 km/hr</span>
+        </div>
+        <div>
+          <img id="humidity-icon" src="ICONS/humidity.png" class="w-10 h-10 mx-auto mb-1" alt="Humidity Icon">
+          <p class="text-gray-200">Humidity</p>
+          <span id="humidity" class="font-bold">02%</span>
+        </div>
+        <div>
+          <img id="sun-icon" src="ICONS/sun.png" class="w-10 h-10 mx-auto mb-1" alt="Sunrise Icon" width="40px">
+          <p class="text-gray-200">Sunrise</p>
+          <span id="sunrise" class="font-bold">8:00 AM</span>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Hourly Forecast Section -->
+    <div class="glass-card p-8 mx-auto max-w-lg shadow-lg">
+      <h3 class="text-lg font-semibold mb-4">Hourly Forecast</h3>
+      <div id="hourly-forecast" class="flex flex-wrap justify-between">
+        <!-- Forecast Items will be dynamically added here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Navigation -->
+  <footer class="fixed bottom-0 inset-x-0 bg-white bg-opacity-10 py-4">
+    <div class="flex justify-around">
+      <a href="#" class="flex flex-col items-center text-gray-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7m-7-7v18" />
+        </svg>
+        <span class="text-xs">Home</span>
+      </a>
+      <a href="#" class="flex flex-col items-center text-gray-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+        </svg>
+        <span class="text-xs">Menu</span>
+      </a>
+      <a href="#" class="flex flex-col items-center text-gray-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16h10M7 8h10M4 12h16" />
+        </svg>
+        <span class="text-xs">Settings</span>
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
